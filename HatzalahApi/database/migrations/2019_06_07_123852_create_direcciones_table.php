@@ -15,7 +15,7 @@ class CreateDireccionesTable extends Migration
     {
         Schema::create('direcciones', function (Blueprint $table) {
             $table->bigIncrements('idDirecciones');
-            $table->unsignedInteger('idUsuario');
+            $table->bigInteger('idUsuario');
             $table->string('direccion');
             $table->string('entre1');
             $table->string('entre2');
