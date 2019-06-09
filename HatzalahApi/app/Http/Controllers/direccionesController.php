@@ -43,7 +43,15 @@ class direccionesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       // echo "insert";
+        $direccion = new Direcciones();
+        $direccion->idUsuario = $request->input('idUsuario');
+        $direccion->direccion = $request->input('direccion');
+        $direccion->entre1 = $request->input('entre1');
+        $direccion->entre2 = $request->input('entre2');
+        $direccion->etiqueta = $request->input('etiqueta');
+        $direccion->save();
+        return $direccion;
     }
 
     /**
@@ -77,7 +85,15 @@ class direccionesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $direccion = Direcciones::find($id);
+        $rescatista->name = $request->input('name');
+         $rescatista->surname = $request->input('surname');
+         $rescatista->mail = $request->input('mail');
+         $rescatista->save();
+         return $rescatista;
+
+
+        
     }
 
     /**
@@ -88,6 +104,8 @@ class direccionesController extends Controller
      */
     public function destroy($id)
     {
-        //
+         //echo "destroy";
+         $rescatista = Rescatistas::find($id);
+         $rescatista->delete();
     }
 }
