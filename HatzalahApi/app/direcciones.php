@@ -9,7 +9,7 @@ class direcciones extends Model
     public function misusuarios(){
         return $this->belongsTo('App\misusuarios');
     }
-    // protected $primaryKey = 'idUsuario';
+     protected $primaryKey = 'idDirecciones';
      public $timestamps = false;
 }
 

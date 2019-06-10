@@ -18,3 +18,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::resource('direcciones', 'direccionesController');
+
+Route::resource('usuario', 'misusuariosController');
+
+Route::resource('circulo', 'circulo_familiarsController');

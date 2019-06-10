@@ -13,6 +13,6 @@ class misusuarios extends Model
     public function circuloFamiliar(){
         return $this ->hasMany('App\circuloFamiliar'); 
     }
-
-    
+    protected $primaryKey = 'idUsuario';
+       public $timestamps = false;
 }
