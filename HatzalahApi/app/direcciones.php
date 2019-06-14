@@ -11,5 +11,7 @@ class direcciones extends Model
     }
      protected $primaryKey = 'idDirecciones';
      public $timestamps = false;
+
+     
 }
 

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Misusuarios;
+use App\Direcciones;
 class misusuariosController extends Controller
 {
     /**
@@ -11,9 +13,18 @@ class misusuariosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return Misusuarios::all();
+        
+        $usuario=DB::table('misusuarios')
+        ->where('misusuarios.idUsuario',$request->idUsuario)
+        ->get();
+        $direcciones=DB::table('direcciones')
+        ->where('direcciones.idUsuario',$request->idUsuario)
+        ->get();
+        $usuario['Direcciones']=$direcciones;
+        return $usuario;
+      
     }
 
     /**
@@ -59,7 +70,12 @@ class misusuariosController extends Controller
      */
     public function show($id)
     {
-        return Misusuarios::find($id);
+
+        return Misusuarios::with('direcciones') -> find()
+       
+        ->join('direcciones', 'misusuarios.idUsuario', '=', 'direcciones.idUsuario')
+        ->where('misusuarios.idUsuario', '=', $id)
+        ->get( array('direcciones.direccion', 'direcciones.entre1', 'direcciones.entre2', 'misusuarios.nombreUsuario'));
     }
 
     /**
