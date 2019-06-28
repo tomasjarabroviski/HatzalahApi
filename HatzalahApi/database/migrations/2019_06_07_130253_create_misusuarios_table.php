@@ -15,7 +15,7 @@ class CreateMisusuariosTable extends Migration
     {
         Schema::create('misusuarios', function (Blueprint $table) {
             $table->bigIncrements('idUsuario');
-            $table->bigInteger('dniusuaio');
+            $table->bigInteger('dniusuario');
             $table->string('nombreUsuario');
             $table->string('apellidoUsuario');
             $table->bigInteger('telefonoUsuario');

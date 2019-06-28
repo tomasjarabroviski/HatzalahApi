@@ -22,8 +22,13 @@ class misusuariosController extends Controller
         $direcciones=DB::table('direcciones')
         ->where('direcciones.idUsuario',$request->idUsuario)
         ->get();
-        $usuario['Direcciones']=$direcciones;
-        return $usuario;
+        if($usuario!="[]")
+        {
+            $usuario['Direcciones']=$direcciones;
+            return $usuario;
+        }else{
+            return '{}';
+        }
       
     }
 
