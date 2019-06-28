@@ -21,9 +21,6 @@ class CreateMisusuariosTable extends Migration
             $table->bigInteger('telefonoUsuario');
             $table->string('mailUsuario');
             $table->string('contrasenaUsuario'); 
-            $table->string('tipoDeSangre'); 
-            $table->string('alergias'); 
-            $table->string('med');
             $table->boolean('alta'); 
             $table->string('fotoUsuario'); 
             $table->date('fechaNacimientoUsuario');

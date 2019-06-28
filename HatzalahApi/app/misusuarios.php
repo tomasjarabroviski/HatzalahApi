@@ -13,6 +13,12 @@ class misusuarios extends Model
     public function circuloFamiliar(){
         return $this ->hasMany('App\circuloFamiliar'); 
     }
+
+    public function fichasmedicas(){
+        return $this ->hasOne('App\fichasmedicas'); 
+    }
+
+  
     protected $primaryKey = 'idUsuario';
        public $timestamps = false;
 }

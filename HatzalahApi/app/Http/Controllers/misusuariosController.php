@@ -19,13 +19,19 @@ class misusuariosController extends Controller
         $usuario=DB::table('misusuarios')
         ->where('misusuarios.idUsuario',$request->idUsuario)
         ->get();
-        $direcciones=DB::table('direcciones')
-        ->where('direcciones.idUsuario',$request->idUsuario)
-        ->get();
         if($usuario!="[]")
         {
-            $usuario['Direcciones']=$direcciones;
-            return $usuario;
+            $ficha=DB::table('fichasmedicas')
+            ->where('fichasmedicas.idUsuario',$request->idUsuario)
+            ->get();
+            $direcciones=DB::table('direcciones')
+            ->where('direcciones.idUsuario',$request->idUsuario)
+            ->get();
+            $usuario=array_merge(json_decode($usuario, true),json_decode($ficha, true));
+            $jsonAMostrar["Usuario"]=$usuario[0];
+            $jsonAMostrar["Ficha"]=$ficha[0];
+            $jsonAMostrar["Direcciones"]=$direcciones;
+            return $jsonAMostrar;
         }else{
             return '{}';
         }
