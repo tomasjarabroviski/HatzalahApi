@@ -29,8 +29,12 @@ class misusuariosController extends Controller
             ->get();
             $usuario=array_merge(json_decode($usuario, true),json_decode($ficha, true));
             $jsonAMostrar["Usuario"]=$usuario[0];
-            $jsonAMostrar["Ficha"]=$ficha[0];
-            $jsonAMostrar["Direcciones"]=$direcciones;
+            if($ficha!="[]"){
+                $jsonAMostrar["Ficha"]=$ficha[0];
+            }
+            if($direcciones!="[]"){
+                $jsonAMostrar["Direcciones"]=$direcciones;
+            }
             return $jsonAMostrar;
         }else{
             return '{}';
