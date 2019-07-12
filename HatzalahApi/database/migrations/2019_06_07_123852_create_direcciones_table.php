@@ -20,6 +20,8 @@ class CreateDireccionesTable extends Migration
             $table->string('entre1');
             $table->string('entre2');
             $table->string('etiqueta');
+            $table->double('lat');
+            $table->double('lon');
         });
     }
 

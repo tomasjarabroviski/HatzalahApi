@@ -50,6 +50,8 @@ class direccionesController extends Controller
         $direccion->entre1 = $request->input('entre1');
         $direccion->entre2 = $request->input('entre2');
         $direccion->etiqueta = $request->input('etiqueta');
+        $direccion->lat = $request->input('lat');
+        $direccion->lon = $request->input('lon');
         $direccion->save();
         return $direccion;
     }
@@ -92,6 +94,8 @@ class direccionesController extends Controller
         $direccion->entre1 = $request->input('entre1');
         $direccion->entre2 = $request->input('entre2');
         $direccion->etiqueta = $request->input('etiqueta');
+        $direccion->lat = $request->input('lat');
+        $direccion->lon = $request->input('lon');
         $direccion->save();
         return $direccion;
 

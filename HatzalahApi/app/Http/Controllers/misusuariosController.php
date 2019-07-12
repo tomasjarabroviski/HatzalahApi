@@ -67,9 +67,6 @@ class misusuariosController extends Controller
         $usuario->telefonoUsuario = $request->input('telefonoUsuario');
         $usuario->mailUsuario = $request->input('mailUsuario');
         $usuario->contrasenaUsuario = $request->input('contrasenaUsuario');
-        $usuario->tipoDeSangre = $request->input('tipoDeSangre');
-        $usuario->alergias = $request->input('alergias');
-        $usuario->med = $request->input('med');
         $usuario->alta = $request->input('alta');
         $usuario->fotoUsuario = $request->input('fotoUsuario');
         $usuario->fechaNacimientoUsuario = $request->input('fechaNacimientoUsuario');
