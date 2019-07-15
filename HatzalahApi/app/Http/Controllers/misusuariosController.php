@@ -31,9 +31,13 @@ class misusuariosController extends Controller
             $jsonAMostrar["Usuario"]=$usuario[0];
             if($ficha!="[]"){
                 $jsonAMostrar["Ficha"]=$ficha[0];
+            }else{
+                $jsonAMostrar["Ficha"]='{}';
             }
             if($direcciones!="[]"){
                 $jsonAMostrar["Direcciones"]=$direcciones;
+            }else{
+                $jsonAMostrar["Direcciones"]='{}';
             }
             return $jsonAMostrar;
         }else{
@@ -61,7 +65,7 @@ class misusuariosController extends Controller
     public function store(Request $request)
     {
         $usuario = new Misusuarios();
-        $usuario->dniusuaio = $request->input('dniusuaio');
+        $usuario->dniusuario = $request->input('dniusuario');
         $usuario->nombreUsuario = $request->input('nombreUsuario');
         $usuario->apellidoUsuario = $request->input('apellidoUsuario');
         $usuario->telefonoUsuario = $request->input('telefonoUsuario');
