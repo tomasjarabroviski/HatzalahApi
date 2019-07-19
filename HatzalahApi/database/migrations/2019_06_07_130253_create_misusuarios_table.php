@@ -15,15 +15,15 @@ class CreateMisusuariosTable extends Migration
     {
         Schema::create('misusuarios', function (Blueprint $table) {
             $table->bigIncrements('idUsuario');
-            $table->bigInteger('dniusuario');
+            $table->string('dniusuario');
             $table->string('nombreUsuario');
             $table->string('apellidoUsuario');
-            $table->bigInteger('telefonoUsuario');
+            $table->string('telefonoUsuario');
             $table->string('mailUsuario');
             $table->string('contrasenaUsuario'); 
             $table->boolean('alta'); 
             $table->string('fotoUsuario'); 
-            $table->date('fechaNacimientoUsuario');
+            $table->string('fechaNacimientoUsuario');
         });
     }
 

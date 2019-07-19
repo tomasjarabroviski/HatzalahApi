@@ -22,3 +22,5 @@ Route::resource('direcciones', 'direccionesController');
 Route::resource('usuario', 'misusuariosController');
 
 Route::resource('circulo', 'circulo_familiarsController');
+
+Route::resource('fichamedica', 'fichasmedicasController');
