@@ -86,12 +86,8 @@ class misusuariosController extends Controller
      */
     public function show($id)
     {
-
-        return Misusuarios::with('direcciones') -> find()
+        return Misusuarios::find($id);
        
-        ->join('direcciones', 'misusuarios.idUsuario', '=', 'direcciones.idUsuario')
-        ->where('misusuarios.idUsuario', '=', $id)
-        ->get( array('direcciones.direccion', 'direcciones.entre1', 'direcciones.entre2', 'misusuarios.nombreUsuario'));
     }
 
     /**
@@ -115,20 +111,17 @@ class misusuariosController extends Controller
     public function update(Request $request, $id)
     {
         $usuario = Misusuarios::find($id);
-        $usuario->dniusuaio = $request->input('dniusuaio');
+        $usuario->dniusuario = $request->input('dniusuario');
         $usuario->nombreUsuario = $request->input('nombreUsuario');
         $usuario->apellidoUsuario = $request->input('apellidoUsuario');
         $usuario->telefonoUsuario = $request->input('telefonoUsuario');
         $usuario->mailUsuario = $request->input('mailUsuario');
         $usuario->contrasenaUsuario = $request->input('contrasenaUsuario');
-        $usuario->tipoDeSangre = $request->input('tipoDeSangre');
-        $usuario->alergias = $request->input('alergias');
-        $usuario->med = $request->input('med');
         $usuario->alta = $request->input('alta');
         $usuario->fotoUsuario = $request->input('fotoUsuario');
         $usuario->fechaNacimientoUsuario = $request->input('fechaNacimientoUsuario');
         $usuario->save();
-        return $usuario;
+        return  $usuario;
     }
 
     /**
