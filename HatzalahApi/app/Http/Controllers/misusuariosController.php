@@ -15,7 +15,9 @@ class misusuariosController extends Controller
      */
     public function index(Request $request)
     {
-        
+        if($request->dniUsuario){ 
+            return Misusuarios::where('dniusuario', $request->dniUsuario)->get();; 
+         } else {
         $usuario=DB::table('misusuarios')
         ->where('misusuarios.idUsuario',$request->idUsuario)
         ->get();
@@ -43,7 +45,7 @@ class misusuariosController extends Controller
         }else{
             return '{}';
         }
-      
+    }
     }
 
     /**
@@ -84,9 +86,17 @@ class misusuariosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id, Request $request)
     {
-        return Misusuarios::find($id);
+
+        if($request->dniUsuario){ 
+            return Misusuarios::where('dniusuario', $request->dniUsuario)->get();; 
+         } else {
+            return Misusuarios::find($id);
+
+          }
+
+       // return Misusuarios::find($id);
        
     }
 
