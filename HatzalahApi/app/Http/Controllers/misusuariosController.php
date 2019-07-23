@@ -128,7 +128,9 @@ class misusuariosController extends Controller
         $usuario->mailUsuario = $request->input('mailUsuario');
         $usuario->contrasenaUsuario = $request->input('contrasenaUsuario');
         $usuario->alta = $request->input('alta');
-        $usuario->fotoUsuario = $request->input('fotoUsuario');
+        if($request->input('fotoUsuario')!=null){
+            $usuario->fotoUsuario = $request->input('fotoUsuario');
+        }
         $usuario->fechaNacimientoUsuario = $request->input('fechaNacimientoUsuario');
         $usuario->save();
         return  $usuario;
