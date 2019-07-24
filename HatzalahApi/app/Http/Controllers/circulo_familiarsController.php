@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\CirculoFamiliar;
+use App\Misusuarios;
 
 class circulo_familiarsController extends Controller
 {
@@ -47,7 +48,9 @@ class circulo_familiarsController extends Controller
         $circulo->idFamiliar = $request->input('idFamiliar');
         $circulo->color = $request->input('color');
         $circulo->save();
-        return $circulo;
+        $usuario = new Misusuarios();
+        $usuario = Misusuarios::where('idUsuario', $request->idFamiliar)->get();
+        return $usuario;
     }
 
     /**
