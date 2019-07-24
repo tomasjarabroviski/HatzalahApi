@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\circuloFamiliar;
+use App\CirculoFamiliar;
 
 class circulo_familiarsController extends Controller
 {
@@ -41,7 +41,13 @@ class circulo_familiarsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $circulo = new CirculoFamiliar();
+        $circulo->idUsuario = $request->input('idUsuario');
+        $circulo->idFamiliar = $request->input('idFamiliar');
+        $circulo->color = $request->input('color');
+        $circulo->save();
+        return $circulo;
     }
 
     /**
@@ -86,6 +92,7 @@ class circulo_familiarsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $circulo = CirculoFamiliar::find($id);
+         $circulo->delete();
     }
 }

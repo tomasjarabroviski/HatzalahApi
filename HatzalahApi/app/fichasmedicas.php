@@ -11,4 +11,5 @@ class fichasmedicas extends Model
     }
     protected $primaryKey = 'idFicha';
        public $timestamps = false;
+       
 }

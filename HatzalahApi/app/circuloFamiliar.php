@@ -9,4 +9,6 @@ class circuloFamiliar extends Model
     public function misusuarios(){
         return $this->belongsTo('App\misusuarios');
     }
+    public $timestamps = false;
+    protected $primaryKey = 'idCirculoFamiliar';
 }

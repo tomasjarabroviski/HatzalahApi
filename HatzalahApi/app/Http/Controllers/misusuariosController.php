@@ -16,7 +16,9 @@ class misusuariosController extends Controller
     public function index(Request $request)
     {
         if($request->dniUsuario){ 
-            return Misusuarios::where('dniusuario', $request->dniUsuario)->get();; 
+            $usuario = new Misusuarios();
+            $usuario = Misusuarios::where('dniusuario', $request->dniUsuario)->get();
+            return $usuario;
          } else {
         $usuario=DB::table('misusuarios')
         ->where('misusuarios.idUsuario',$request->idUsuario)
