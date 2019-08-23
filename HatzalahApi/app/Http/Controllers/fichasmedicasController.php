@@ -12,9 +12,14 @@ class fichasmedicasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        if($request->idUsuario){ //acá es donde chequeás si te está mandando un idUsuario para filtrar
+            return Fichasmedicas::where('idUsuario', $request->idUsuario)->get();; 
+         } else {
+            return Fichasmedicas::all();
+
+          }
     }
 
     /**
@@ -75,7 +80,13 @@ class fichasmedicasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $ficha = fichasmedicas::find($id);
+        $ficha->idUsuario = $request->input('idUsuario');
+        $ficha->tipoDeSangre = $request->input('tipoDeSangre');
+        $ficha->alergias = $request->input('alergias');
+        $ficha->med = $request->input('med');
+        $ficha->save();
+        return $ficha;
     }
 
     /**
