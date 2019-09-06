@@ -21,16 +21,16 @@ class CreateRescatistasTable extends Migration
             $table->bigInteger('telefonoRescatista');
             $table->string('direccionRescatista');    
             $table->string('contrasenaRescatista'); 
-            $table->date('ultCapTem');
-            $table->date('ultCapTora');
-            $table->date('ultCapCruzRoja');
+            $table->string('ultCapTem');
+            $table->string('ultCapTora');
+            $table->string('ultCapCruzRoja');
             $table->boolean('online');
             $table->string('ubicacionLat');
             $table->string('ubicacionLon'); 
-            $table->date('proximaCap');
+            $table->string('proximaCap');
             $table->string('fotoRescatista'); 
             $table->string('mailRescatista'); 
-            $table->date('fechaNacimientoRescatista');
+            $table->string('fechaNacimientoRescatista');
         });
     }
 

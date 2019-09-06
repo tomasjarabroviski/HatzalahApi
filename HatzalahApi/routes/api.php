@@ -24,3 +24,5 @@ Route::resource('usuario', 'misusuariosController');
 Route::resource('circulo', 'circulo_familiarsController');
 
 Route::resource('fichamedica', 'fichasmedicasController');
+
+Route::resource('rescatistas', 'rescatistaController');
